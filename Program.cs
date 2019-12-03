@@ -1,68 +1,75 @@
 ﻿using System;
 
-namespace Lab02
+namespace Lab04
 {
     class Program
     {
-        static void Main(string[] args)
+
+        public static double average(int n1, int n2)
         {
-                double PairSinglePrescriptionCost = 40.00;
-
-                double PairNONPRESCRIPTIONCOST = 25.00;
-
-                double AntiGlareCoating = 12.50;
-
-                double BrownTintCoating = 9.99;
-
-                Console.WriteLine("What kind of glasses would you like:");
-
-                Console.WriteLine("1 -> prescription, 2 -> non-prescription : ");
-
-                int select = Int32.Parse(Console.ReadLine());
-
-                while (select < 1 || select > 2)
-                {
-                    Console.WriteLine("1 -> prescription, 2 -> non-prescription : ");
-
-                    select = Int32.Parse(Console.ReadLine());
-                }
-                double total = 0.0;
-
-                if (select == 2)
-
-                     total = PairNONPRESCRIPTIONCOST;
-
-                else
-                     total = PairSinglePrescriptionCost;
-
-
-                Console.WriteLine("What kind of coating would you like: ");
-
-                Console.WriteLine("1 -> anti-glare, 2 -> brown tint : ");
-
-                select = Int32.Parse(Console.ReadLine());
-
-                while (select < 1 || select > 2)
-                {
-                    Console.WriteLine("1 -> anti-glare, 2 -> brown tint : ");
-
-                    select = Int32.Parse(Console.ReadLine());
-
-                }
-                if (select == 2)
-
-                    total = total + BrownTintCoating;
-                   
-                else
-
-                    total = total + AntiGlareCoating;
-
-
-            Console.WriteLine(" Your total cost is $" + total);
-
-                Console.ReadLine();
-            }
+            return (n1 + n2) / 2.0;
         }
+
+        // Overloaded methoid Definition(s) here ...}
+
+        static double average(double a, double b)
+        {
+            return (a + b) / 2.0;
+        }
+
+        static double average(int a, int b, int c)
+        {
+            return (a + b + c) / 3.0;
+        }
+
+        static double average(double x, double y, double z)
+        {
+            return (x + y + z) / 3.0;
+        }
+
+        public static void Main(String[] args)
+        {
+
+            int a = 1, b = 3, c = 5;
+
+            double x = 2.2, y = 4.4, z = 6.6, ans;
+
+            ans = average(a, b);
+
+            Console.WriteLine("\naverage(a, b) = " + ans);
+
+            ans = average(a, b, c);
+
+            Console.WriteLine("\naverge(a, b, c) = " + ans);
+
+            ans = average(x,y);
+
+            Console.WriteLine("\naverage(x, y) = " + ans);
+
+            ans = average(x, y, z);
+
+            Console.WriteLine("\naverage(x, y, z) = " + ans);
+        }
+        
     }
+}
 
 
+//Answer the following questions, modifying your program file as needed:
+
+//1.Do you really need the int parameter version(s)ofaverage,and why?
+
+//Yes, we need the INT version in the parameter because we need to refrence what is the name sapce for.
+//Without the defination we cannot able to run the code
+
+//2.Do you really need the three parameter version of average,i.e.is average(average(a, b),c)== average(a, b, c),and why?
+
+//Yes we need the three parameter for the average of a,b,c. The average of 3 different numbers is going to be different than the average of two sup of (mean) numbers
+//and a third number. The average(average(a, b), c) is not the same as average(a, b, c) it is. differnet 
+
+
+
+//3.Is average(1,2.0,3)legal,and if sowhich version is used,and why?
+
+//Yes it is legal.
+//average(double x, double y, double z) is used because it is the only method that can accept a double argument.
